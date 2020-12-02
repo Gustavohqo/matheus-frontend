@@ -1,0 +1,36 @@
+:host {
+    flex: 1;
+    display: flex;
+
+    .product-table {
+        display: flex;
+        flex: 1;
+
+        &__filters {
+            padding: 24px;
+        }
+
+        &__products-wrapper {
+            flex: 1;
+            overflow: auto;
+            padding: 32px;
+        }
+    
+        &__products {
+            // display: grid;
+            // grid: auto / repeat(4, 1fr);
+            // grid-gap: 40px 40px;
+
+            display: flex;
+            flex-wrap: wrap;
+        }
+    }
+
+    .products {
+        &__item {
+            margin-right: 40px;
+            margin-bottom: 24px;
+            flex: 1;
+        }
+    }
+}

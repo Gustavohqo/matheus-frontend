@@ -1,0 +1,14 @@
+:host {
+    .app-container {
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+
+        &__content {
+            flex: 1;
+            display: flex;
+            overflow: hidden;
+        }
+    }
+}

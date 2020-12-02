@@ -1,0 +1,48 @@
+.app-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    outline: 0;
+    border: none;
+    padding: 6px 16px;
+    font-size: var(--typography-body-1);
+    border-radius: 4px;
+
+    &--basic {
+        border: 1px solid var(--primary-600);
+        color: var(--primary-600);
+        background-color: #fff;
+    }
+
+    &--primary {
+        background-color: var(--primary-700);
+        color: #fff;
+    }
+
+    &--secondary {
+        background-color: var(--secondary-500);
+        color: #fff;
+    }
+    
+    &--warn {
+        background-color: var(--warn);
+        color: #fff;
+    }
+
+    &--rounded {
+        padding: 8px;
+        border-radius: 25px;
+    }
+
+    &:hover, &:active, &:focus-visible {
+        opacity: 0.7;
+        transition: 0s;
+    }
+
+    &:disabled {
+        background-color: rgba(0,0,0,.12);
+        color: rgba(0,0,0,.26);
+        cursor: default;
+    }
+}
