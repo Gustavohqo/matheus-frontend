@@ -36,7 +36,7 @@
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles/styles.scss"
             ],
             "scripts": []
           },
@@ -99,5 +99,8 @@
       }
     }
   },
-  "defaultProject": "siteware-frontend"
+  "defaultProject": "siteware-frontend",
+  "cli": {
+    "analytics": "fc975fc7-97b9-4814-bbd3-c8bba57ce617"
+  }
 }

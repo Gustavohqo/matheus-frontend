@@ -1,0 +1,56 @@
+:host {
+    width: 100%;
+
+    .header-container {
+        width: 100%;
+
+        &__primary {
+            display: flex;
+            align-items: center;
+            background-color: var(--primary-500);
+            padding: 24px;
+        }
+
+        &__secondary {
+            display: flex;
+            align-items: center;
+            padding: 16px;
+        }
+    }
+
+    .primary-header {
+        &__item {
+            flex: 1;
+
+            &--input {
+                display: flex;
+                padding: 0 24px;
+                flex: 6;
+            }
+
+            &--icon {
+                display: flex;
+                justify-content: flex-end;
+                color: var(--primary-text-2);
+            }
+        }
+
+        &__icon {
+            cursor: pointer;
+            outline: 0;
+        }
+    }
+
+    .secondary-header {
+        &__item {
+            padding: 0 8px;
+            cursor: pointer;
+            font-weight: 600;
+
+            &--home {
+                cursor: pointer;
+                margin-right: 16px;
+            }
+        }
+    }
+}
