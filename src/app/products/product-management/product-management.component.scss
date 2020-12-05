@@ -1,0 +1,107 @@
+:host {
+    overflow: auto;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+
+    .product-management {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        max-width: 1280px;
+
+        &__header {
+            padding: 36px;
+            display: flex;
+            align-items: center;
+            padding-bottom: 16px;
+        }
+
+        &__table-wrapper {
+            flex: 1;
+            overflow: auto;
+        }
+
+        &__table {
+            width: 100%;
+            text-align: left;
+            border-collapse: separate;
+            border-spacing: 0 16px;  
+            padding: 0 36px;      
+        }
+    }
+
+    .header {
+        &__title {
+            font-size: var(--typography-h5);
+            font-weight: 600;
+            color: var(--primary-800);
+        }
+
+        &__actions {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        &__input {
+            width: 320px;
+            margin-right: 24px;
+            color: var(--primary-700);
+        }
+
+        &__select {
+            width: 240px;
+            margin-right: 24px;
+            color: var(--primary-700);
+        }
+
+        &__button {
+            width: 240px;
+        }
+    }
+
+    .button {
+        &__text {
+            margin-right: 8px;
+        }
+    }
+
+    .product-managemen-table {
+        &__header {
+            color: var(--primary-700);
+            font-weight: bold;
+        }
+    }
+
+    .table-header {
+        &__column {
+            border-bottom: 2px solid var(--primary-50);
+            padding: 24px 0;
+            position: sticky;
+            top: 0;
+            background-color: #fff;
+
+            &--center-align {
+                text-align: center;
+            }
+        }
+    }
+
+    .course-panel-row {
+        padding: 8px 0;
+        color: var(--gray-text);
+
+        &__column {
+            border-bottom: 1px solid var(--primary-50);
+            padding-bottom: 16px;
+            vertical-align: middle;
+
+            &--center-align {
+                text-align: center;
+            }
+        }
+    }
+
+}
