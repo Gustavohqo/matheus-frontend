@@ -1,6 +1,7 @@
 :host {
     display: flex;
     max-width: 232px;
+    min-width: 232px;
     cursor: pointer;
 
     .product-item {

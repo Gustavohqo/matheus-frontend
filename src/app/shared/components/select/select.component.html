@@ -1,0 +1,22 @@
+<div class="text-field select-container" [ngClass]="getTextFieldClass()" [formGroup]="appFormGroup"  *ngIf="inputInsideForm">
+    <select [(ngModel)]="selectedValue" class="select-container__native" [formControlName]="appFormControlName">
+      <option *ngFor="let option of options" [ngValue]="option.value">option.label</option>
+    </select>
+    <div class="select-container__styled" (click)="changeSelectMode()">
+      <span>{{ selectedOption?.label || placeholder }}</span>&nbsp;<i class="material-icons list-item__icon--arrow">keyboard_arrow_down</i>
+    </div>
+    <ul class="select-container__options" [ngClass]="{'select-container__options--hidden': !isOpened}">
+      <li *ngFor="let option of options" (click)="selectOption(option)">{{ option.label }}</li>
+    </ul>
+</div>
+<div class="text-field select-container" [ngClass]="getTextFieldClass()" *ngIf="!inputInsideForm">
+  <select [(ngModel)]="selectedValue" class="select-container__native">
+    <option *ngFor="let option of options" [ngValue]="option.value">option.label</option>
+  </select>
+  <div class="select-container__styled" (click)="changeSelectMode()">
+    <span>{{ selectedOption?.label || placeholder }}</span>&nbsp;<i class="material-icons list-item__icon--arrow">keyboard_arrow_down</i>
+  </div>
+  <ul class="select-container__options" [ngClass]="{'select-container__options--hidden': !isOpened}">
+    <li *ngFor="let option of options" (click)="selectOption(option)">{{ option.label }}</li>
+  </ul>
+</div>

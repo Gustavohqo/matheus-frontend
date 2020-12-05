@@ -1,0 +1,33 @@
+:host {
+    display: flex;
+
+    .input-container {
+        flex: 1;
+
+        &__wrapper {
+            display: flex;
+        }
+
+        &__input {
+            outline: 0;
+            border: none;
+            flex: 1;
+            color: inherit;
+            width: 100%;
+
+            &::placeholder {
+                color: inherit;
+            }
+        }
+
+        &__icon {
+            color: inherit;
+        }
+
+        &__hint {
+            color: var(--warn);
+            font-size: var(--typography-caption);
+            font-weight: 600;
+        }
+    }
+}

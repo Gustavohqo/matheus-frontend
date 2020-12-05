@@ -1,0 +1,53 @@
+:host {
+    display: flex;
+
+    .select-container {
+        cursor: pointer;
+        user-select: none;
+        display: inline-block;
+        position: relative;
+        flex: 1;
+
+        &__native {
+            display: none;
+            visibility: hidden;
+            padding-right: 10px;
+        }
+
+        &__styled {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        &__options {
+            position: absolute;
+            top: 115%;
+            right: 0;
+            left: 0;
+            z-index: 999;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            background-color: #fff;
+            color: #666;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 6px;
+            overflow: auto;
+            max-height: 200px;
+            
+            li {
+                margin: 0;
+                padding: 12px 0;
+                text-indent: 15px;
+                &:hover {
+                    background: var(--primary-100);
+                }
+            }
+
+            &--hidden {
+                display: none; 
+            }
+        }
+    }
+}

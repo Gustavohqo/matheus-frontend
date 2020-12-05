@@ -1,0 +1,131 @@
+:host {
+    padding: 32px;
+    overflow: auto;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+
+    .cart-container {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        max-width: 1280px;
+
+        &__products {
+            flex: 2;
+            padding: 24px;
+            max-width: 1000px;
+        }
+
+        &__payment {
+            padding: 24px;
+            flex: 1;
+            max-width: 350px;
+        }
+    }
+
+    .products {
+        &__title {
+            font-size: var(--typography-h5);
+            font-weight: 600;
+        }
+    }
+
+    .products-table {
+        width: 100%;
+        margin-top: 24px;
+
+        &__column {
+            text-align: start;
+            padding: 32px 0;
+            border-bottom: 1px solid gray;
+
+            &--header {
+                font-size: 20px;
+                font-weight: 600;
+                padding-bottom: 16px;
+            }
+
+            &--center {
+                text-align: center;
+            }
+        }
+    }
+
+    .cart-product {
+        display: flex;
+        align-items: center;
+        padding: 24px;
+        border-bottom: 1px solid gray;
+        
+        &__item {
+            pointer-events: none;
+        }
+    }
+
+    .product-quantity {
+        &__input {
+            margin: auto;
+            display: flex;
+            width: 100px;
+            align-items: center;
+        }
+
+        &__icon {
+            cursor: pointer;
+        }
+
+        &__footer {
+            cursor: pointer;
+            margin-top: 8px;
+            font-size: var(--typography-caption);
+            font-weight: bold;
+        }
+    }
+
+    .product-sale {
+        &__description {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 240px;
+        }
+    }
+
+    .payment {
+        &__title {
+            font-size: var(--typography-h5);
+        }
+
+        &__price {
+            padding: 24px 0;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        &__actions {
+            display: flex;
+            flex-direction: column;
+        }
+
+        &__action-button {
+            margin-bottom: 8px;
+        }
+    }
+
+    .cart-price {
+        &__details {
+            display: flex;
+            flex-direction: column;
+            text-align: end;
+        }
+
+        &__value {
+            font-size: var(--typography-h5);
+            font-weight: bold;
+        }
+
+        &__way {
+            font-size: var(--typography-caption);
+        }
+    }
+}

@@ -1,8 +1,13 @@
 :host {
     padding: 32px;
     overflow: auto;
+    display: flex;
+    flex: 1;
+    justify-content: center;
 
     .product-view {
+        max-width: 1280px;
+
         &__product {
             display: flex;
             margin-bottom: 40px;
@@ -89,6 +94,13 @@
 
         &__way {
             font-size: var(--typography-caption);
+        }
+    }
+    .size {
+        &__title {
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: var(--typography-subtitle-1);
         }
     }
 

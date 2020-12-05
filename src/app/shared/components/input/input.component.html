@@ -1,0 +1,24 @@
+<div class="input-container" [formGroup]="appFormGroup" *ngIf="inputInsideForm">
+    <label *ngIf="label">{{ label }}</label>
+    <div class="text-field input-container__wrapper" [ngClass]="getTextFieldClass()">
+        <input [formControlName]="appFormControlName"
+            [type]="type" 
+            class="input-container__input" 
+            [placeholder]="placeholder || ''"
+            (keyup)="changeValue.emit($event.target)"/>
+        <i *ngIf="icon" class="material-icons input-container__icon">{{ icon }}</i>
+    </div>
+    <span class="input-container__hint">
+        {{ getErrorMessage() }}&nbsp;    
+    </span>
+</div>
+<div class="input-container" *ngIf="!inputInsideForm">
+    <label *ngIf="label">{{ label }}</label>
+    <div class="text-field input-container__wrapper" [ngClass]="getTextFieldClass()">
+        <input [type]="type" 
+            class="input-container__input" 
+            [placeholder]="placeholder || ''"
+            (keyup)="changeValue.emit($event.target)"/>
+        <i *ngIf="icon" class="material-icons input-container__icon">{{ icon }}</i>
+    </div>
+</div>
