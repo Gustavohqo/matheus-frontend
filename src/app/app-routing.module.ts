@@ -3,7 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   { path: 'products', loadChildren: './products/products.module#ProductsModule' },
-  { path: '', pathMatch: 'full', redirectTo: 'products' },
+  { path: 'e-commerce', loadChildren: './e-commerce/e-commerce.module#ECommerceModule' },
+  { path: '', pathMatch: 'full', redirectTo: 'e-commerce' },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -1,0 +1,43 @@
+@import '../../../../../../styles/base/animations';
+
+:host {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+
+    .product-deletion-modal {
+        display: flex;
+        align-items: center;
+        background-color: #fefefe;
+        border-radius: 8px;
+        padding: 24px;
+        width: 448px;
+        max-width: 90%;
+        box-shadow: 0 3px 7px rgb(0 0 0);
+        animation: show .2s;
+
+        &__message {
+            flex: 1;
+        }
+
+        &__company {
+            color: var(--primary-700);
+        }
+
+        &__actions {
+            display: flex;
+        }
+
+        &__button {
+            margin-right: 16px;
+        }
+    }
+}

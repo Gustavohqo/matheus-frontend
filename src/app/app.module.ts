@@ -4,11 +4,11 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
-import { ProductsModule } from './products/products.module';
+import { ECommerceModule } from './e-commerce/e-commerce.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, CoreModule, ProductsModule],
+  imports: [BrowserModule, AppRoutingModule, CoreModule, ECommerceModule],
   providers: [],
   bootstrap: [AppComponent],
 })

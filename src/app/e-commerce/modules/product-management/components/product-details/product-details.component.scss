@@ -44,11 +44,6 @@
             margin: 16px 0;
             display: flex;
             flex-direction: column;
-
-            &--sub-item {
-                display: flex;
-                flex-direction: column;
-            }
         }
     }
 
@@ -61,6 +56,10 @@
     }
 
     .sub-item {
+        &__table {
+            max-width: 560px;
+        }
+
         &__img-container {
             margin-top: 24px;
             display: flex;

@@ -1,0 +1,43 @@
+:host {
+    overflow: auto;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+
+    .e-commerce-dashboard {
+        flex: 1;
+        display: flex;
+        max-width: 1280px;
+        justify-content: center;
+
+        &__menu {
+            margin-right: 32px;
+            display: flex;
+            flex-direction: column;
+            padding: 32px;
+            max-height: 200px;
+            min-width: 200px;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+            font-size: var(--typography-h5);
+            font-weight: 600;
+            cursor: pointer;
+
+            &:hover {
+                opacity: 0.3;
+                transition: 0.2s;
+            }
+        }
+    }
+
+    .dashboard-menu {
+        &__title {
+            margin-bottom: 32px;
+        }
+
+        &__icon {
+            font-size: var(--typography-h4);
+        }
+    }
+}
