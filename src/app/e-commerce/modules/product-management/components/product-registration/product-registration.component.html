@@ -33,7 +33,7 @@
                 <span class="sub-form__title">Informações</span>
                 <form class="sub-form__input-container" 
                     [formGroup]="informationGroup" 
-                    *ngFor="let informationGroup of productForm.controls.informations.controls; let index = index">
+                    *ngFor="let informationGroup of $any(productForm.controls.informations).controls; let index = index">
                     <app-input class="product-form__input sub-form__input" 
                         label="Label da informação" 
                         appearance="standard" 
@@ -47,7 +47,7 @@
                         [appFormGroup]="informationGroup"
                         appFormControlName="value"></app-input>
                     <i class="material-icons-outlined sub-form__icon" 
-                        (click)="removeFormGroup(productForm.controls.informations, index)">delete</i>
+                        (click)="removeFormGroup($any(productForm.controls.informations), index)">delete</i>
             </form>
                 <button class="app-button sub-form__button app-button--primary" 
                     (click)="addInformationGroup()">Adicionar Informação</button>
@@ -56,7 +56,7 @@
                 <span class="sub-form__title">Imagens</span>
                 <form class="sub-form__input-container" 
                     [formGroup]="imageGroup" 
-                    *ngFor="let imageGroup of productForm.controls.images.controls; let index = index">
+                    *ngFor="let imageGroup of $any(productForm.controls.images).controls; let index = index">
                     <app-input class="product-form__input sub-form__input" 
                         label="Link da imagem" 
                         appearance="standard" 
@@ -64,7 +64,7 @@
                         [appFormGroup]="imageGroup"
                         appFormControlName="src"></app-input>
                     <i class="material-icons-outlined sub-form__icon"
-                        (click)="removeFormGroup(productForm.controls.images, index)">delete</i>
+                        (click)="removeFormGroup($any(productForm.controls.images), index)">delete</i>
                 </form>
                 <button class="app-button sub-form__button app-button--primary" (click)="addImageGroup()">Adicionar Imagem</button>
             </div>
@@ -72,16 +72,16 @@
                 <span class="sub-form__title">Promoções</span>
                 <form class="sub-form__input-container" 
                     [formGroup]="saleGroup" 
-                    *ngFor="let saleGroup of productForm.controls.sales.controls; let index = index">
+                    *ngFor="let saleGroup of $any(productForm.controls.sales).controls; let index = index">
                     <app-select class="product-form__select sub-form__select" 
                         appearance="standard" 
                         placeholder="Promoção"
                         [options]="sales"
                         [appFormGroup]="saleGroup"
                         appFormControlName="sale"
-                        [initialSelectedValue]="saleGroup.controls.sale.value"></app-select>
+                        [initialSelectedValue]="$any(saleGroup).controls.sale.value"></app-select>
                     <i class="material-icons-outlined sub-form__icon"
-                        (click)="removeFormGroup(productForm.controls.sales, index)">delete</i>
+                        (click)="removeFormGroup($any(productForm.controls.sales), index)">delete</i>
                 </form>
                 <button class="app-button sub-form__button app-button--primary" (click)="addSaleGroup()">Adicionar Promoção</button>
             </div>

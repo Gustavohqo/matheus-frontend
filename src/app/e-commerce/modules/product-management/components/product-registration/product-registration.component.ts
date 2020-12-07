@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { CategoryDto } from 'src/app/models/e-commerce/category.model';
@@ -159,5 +159,9 @@ export class ProductRegistrationComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.subscriptions?.forEach((subscription) => subscription.unsubscribe());
+  }
+
+  castControlToFormArray(abstractControl: AbstractControl): FormArray {
+    return abstractControl as FormArray;
   }
 }
