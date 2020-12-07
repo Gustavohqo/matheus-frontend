@@ -4,20 +4,8 @@
     </div>
     <div class="product-table__products-wrapper">
         <div class="product-table__products">
-            <app-product-item class="products__item" routerLink="1/view"></app-product-item>
-            <app-product-item class="products__item"></app-product-item>
-            <app-product-item class="products__item"></app-product-item>
-            <app-product-item class="products__item"></app-product-item>
-            <app-product-item class="products__item"></app-product-item>
-            <app-product-item class="products__item"></app-product-item>
-            <app-product-item class="products__item"></app-product-item>
-            <app-product-item class="products__item"></app-product-item>
-            <app-product-item class="products__item"></app-product-item>
-            <app-product-item class="products__item"></app-product-item>
-            <app-product-item class="products__item"></app-product-item>
-            <app-product-item class="products__item"></app-product-item>
-            <app-product-item class="products__item"></app-product-item>
-            <app-product-item class="products__item"></app-product-item>
+            <app-product-item class="products__item" 
+                [routerLink]="[product.id, 'view']" *ngFor="let product of products" [product]="product"></app-product-item>
         </div>
     </div>
 </div>

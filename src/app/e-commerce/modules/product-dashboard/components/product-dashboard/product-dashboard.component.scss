@@ -17,10 +17,6 @@
         }
     
         &__products {
-            // display: grid;
-            // grid: auto / repeat(4, 1fr);
-            // grid-gap: 40px 40px;
-
             display: flex;
             flex-wrap: wrap;
         }

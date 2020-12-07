@@ -2,101 +2,95 @@
     <div class="product-form-container__title">
         Cadastrar produto
     </div>
-    <form class="product-form-container__form">
+    <form class="product-form-container__form" [formGroup]="productForm">
         <div class="product-form__inputs">
-            <app-input class="product-form__input" 
-                label="Código do produto" 
-                appearance="standard" 
-                type="text"></app-input>
-            <app-input class="product-form__input" 
-                label="Nome do produto" 
-                appearance="standard" 
-                type="text"></app-input>
-            <app-input class="product-form__input" 
-                label="Preço" 
-                appearance="standard" 
-                type="text"></app-input>
-            <app-input class="product-form__input" 
-                label="Preço promocional" 
-                appearance="standard" 
-                type="text"></app-input>
-            <!-- <app-textarea class="product-form__textarea" 
-                label="Descritivo" 
-                [appFormGroup]="courseForm"
-                appFormControlName="description"></app-textarea> -->
             <app-select class="product-form__select" 
                 appearance="standard" 
                 placeholder="Categoria"
-                [options]="[]"></app-select>
+                [options]="categories"
+                [appFormGroup]="productForm"
+                appFormControlName="category"
+                [initialSelectedValue]="productForm.controls.category.value"></app-select>
+            <app-input class="product-form__input" 
+                label="Código do produto" 
+                appearance="standard" 
+                type="text"
+                [appFormGroup]="productForm"
+                appFormControlName="code"></app-input>
+            <app-input class="product-form__input" 
+                label="Nome do produto" 
+                appearance="standard" 
+                type="text"
+                [appFormGroup]="productForm"
+                appFormControlName="name"></app-input>
+            <app-input class="product-form__input" 
+                label="Preço" 
+                appearance="standard" 
+                type="number"
+                [appFormGroup]="productForm"
+                appFormControlName="price"></app-input>
             <div class="product-form__sub-form">
                 <span class="sub-form__title">Informações</span>
-                <div class="sub-form__input-container">
+                <form class="sub-form__input-container" 
+                    [formGroup]="informationGroup" 
+                    *ngFor="let informationGroup of productForm.controls.informations.controls; let index = index">
                     <app-input class="product-form__input sub-form__input" 
                         label="Label da informação" 
                         appearance="standard" 
-                        type="text"></app-input>
+                        type="text"
+                        [appFormGroup]="informationGroup"
+                        appFormControlName="label"></app-input>
                     <app-input class="product-form__input sub-form__input" 
                         label="Valor da informação" 
                         appearance="standard" 
-                        type="text"></app-input>
-                    <i class="material-icons-outlined sub-form__icon">delete</i>
-                </div>
-                <div class="sub-form__input-container">
-                    <app-input class="product-form__input sub-form__input" 
-                        label="Label da informação" 
-                        appearance="standard" 
-                        type="text"></app-input>
-                    <app-input class="product-form__input sub-form__input" 
-                        label="Valor da informação" 
-                        appearance="standard" 
-                        type="text"></app-input>
-                    <i class="material-icons-outlined sub-form__icon">delete</i>
-                </div>
-                <button class="app-button app-button app-button--primary">Adicionar Informação</button>
+                        type="text"
+                        [appFormGroup]="informationGroup"
+                        appFormControlName="value"></app-input>
+                    <i class="material-icons-outlined sub-form__icon" 
+                        (click)="removeFormGroup(productForm.controls.informations, index)">delete</i>
+            </form>
+                <button class="app-button sub-form__button app-button--primary" 
+                    (click)="addInformationGroup()">Adicionar Informação</button>
             </div>
             <div class="product-form__sub-form">
                 <span class="sub-form__title">Imagens</span>
-                <div class="sub-form__input-container">
+                <form class="sub-form__input-container" 
+                    [formGroup]="imageGroup" 
+                    *ngFor="let imageGroup of productForm.controls.images.controls; let index = index">
                     <app-input class="product-form__input sub-form__input" 
                         label="Link da imagem" 
                         appearance="standard" 
-                        type="text"></app-input>
-                    <!-- <img> -->
-                    <i class="material-icons-outlined sub-form__icon">delete</i>
-                </div>
-                <div class="sub-form__input-container">
-                    <app-input class="product-form__input sub-form__input" 
-                        label="Link da imagem" 
-                        appearance="standard" 
-                        type="text"></app-input>
-                    <!-- <img> -->
-                    <i class="material-icons-outlined sub-form__icon">delete</i>
-                </div>
-                <button class="app-button app-button app-button--primary">Adicionar Imagem</button>
+                        type="text"
+                        [appFormGroup]="imageGroup"
+                        appFormControlName="src"></app-input>
+                    <i class="material-icons-outlined sub-form__icon"
+                        (click)="removeFormGroup(productForm.controls.images, index)">delete</i>
+                </form>
+                <button class="app-button sub-form__button app-button--primary" (click)="addImageGroup()">Adicionar Imagem</button>
             </div>
             <div class="product-form__sub-form">
                 <span class="sub-form__title">Promoções</span>
-                <div class="sub-form__input-container">
+                <form class="sub-form__input-container" 
+                    [formGroup]="saleGroup" 
+                    *ngFor="let saleGroup of productForm.controls.sales.controls; let index = index">
                     <app-select class="product-form__select sub-form__select" 
                         appearance="standard" 
                         placeholder="Promoção"
-                        [options]="[]"></app-select>
-                    <i class="material-icons-outlined sub-form__icon">delete</i>
-                </div>
-                <div class="sub-form__input-container">
-                    <app-select class="product-form__select sub-form__select" 
-                        appearance="standard" 
-                        placeholder="Promoção"
-                        [options]="[]"></app-select>
-                    <i class="material-icons-outlined sub-form__icon">delete</i>
-                </div>
-                <button class="app-button app-button app-button--primary">Adicionar Promoção</button>
+                        [options]="sales"
+                        [appFormGroup]="saleGroup"
+                        appFormControlName="sale"
+                        [initialSelectedValue]="saleGroup.controls.sale.value"></app-select>
+                    <i class="material-icons-outlined sub-form__icon"
+                        (click)="removeFormGroup(productForm.controls.sales, index)">delete</i>
+                </form>
+                <button class="app-button sub-form__button app-button--primary" (click)="addSaleGroup()">Adicionar Promoção</button>
             </div>
         </div>
         <div class="product-form__actions">
-            <button class="form-actions__button app-button app-button--basic">Cancelar</button>
+            <button class="form-actions__button app-button app-button--basic" (click)="goBack()">Cancelar</button>
             <button class="form-actions__button app-button app-button--primary" 
                 type="submit"
+                [disabled]="!productForm.valid"
                 >Salvar</button>
         </div>
     </form>

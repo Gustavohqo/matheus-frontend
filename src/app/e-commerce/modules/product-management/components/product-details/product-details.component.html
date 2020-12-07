@@ -1,28 +1,24 @@
 <div class="product-details">
     <div class="product-details__title">
-        cod_123456 - Celularzao
+        {{ product?.code }}&nbsp;-&nbsp;{{ product?.name }}
     </div>
     <div class="product-details__informations-wrapper">
         <div class="product-details__informations">
             <div class="product-informations__item">
                 <span class="information-item__title">Preço</span>
-                <span>cod_123456</span>
-            </div>
-            <div class="product-informations__item">
-                <span class="information-item__title">Preço promocional</span>
-                <span>cod_123456</span>
+                <span>{{ product?.price }}</span>
             </div>
             <div class="product-informations__item">
                 <span class="information-item__title">Categoria</span>
-                <span>cod_123456</span>
+                <span>{{ product?.category?.name }}</span>
             </div>
             <div class="product-informations__item">
                 <span class="information-item__title">Informações</span>
                 <table class="sub-item__table">
                     <tbody>
-                        <tr>
-                            <td  class="sub-item__label">Label da informação</td>
-                            <td>Valor da informação</td>
+                        <tr *ngFor="let information of product?.informations">
+                            <td class="sub-item__label">{{ information.label }}</td>
+                            <td>{{ information.value }}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -30,43 +26,27 @@
             <div class="product-informations__item">
                 <span class="information-item__title">Imagens</span>
                 <div class="sub-item__img-container">
-                    <img src="https://images-americanas.b2w.io/produtos/01/00/img/1446551/8/1446551843_1GG.jpg"
-                        alt="Telefone"
+                    <img *ngFor="let image of product?.images" 
+                        [src]="image.src"                        
+                        alt="Product Image"
                         class="sub-item__img"
                         height="152px"
                         width="152px">
-                    <img src="https://images-americanas.b2w.io/produtos/01/00/img/1446551/8/1446551843_1GG.jpg"
-                        alt="Telefone"
-                        class="sub-item__img"
-                        height="152px"
-                        width="152px">
-                    <img src="https://images-americanas.b2w.io/produtos/01/00/img/1446551/8/1446551843_1GG.jpg"
-                        alt="Telefone"
-                        class="sub-item__img"
-                        height="152px"
-                        width="152px">
-                    <img src="https://images-americanas.b2w.io/produtos/01/00/img/1446551/8/1446551843_1GG.jpg"
-                        alt="Telefone"
-                        class="sub-item__img"
-                        height="152px"
-                        width="152px">   
                 </div>
             </div>
             <div class="product-informations__item">
                 <span class="information-item__title">Promoções</span>
                 <ul>
-                    <li>Promoção</li>
-                    <li>Promoção</li>
-                    <li>Promoção</li>
-                    <li>Promoção</li>
+                    <li *ngFor="let sale of product?.sales" >{{ sale.name }}</li>
                 </ul>
             </div>
         </div>
         <div class="product-details__actions">
-            <button class="details-actions__button app-button app-button--basic">Cancelar</button>
-            <button class="details-actions__button app-button app-button--warn">Excluir</button>
-            <button class="details-actions__button app-button app-button--primary">Editar</button>
+            <button class="details-actions__button app-button app-button--basic" (click)="goBack()">Cancelar</button>
+            <button class="details-actions__button app-button app-button--warn" (click)="changeModalMode()">Excluir</button>
+            <button class="details-actions__button app-button app-button--primary" (click)="edit()">Editar</button>
         </div>
     </div>
 </div>
-<!-- <app-product-deletion-modal></app-product-deletion-modal> -->
+<app-product-deletion-modal *ngIf="modalIsVisible" 
+    [product]="product" (cancel)="changeModalMode()" (delete)="deleteProduct()"></app-product-deletion-modal>

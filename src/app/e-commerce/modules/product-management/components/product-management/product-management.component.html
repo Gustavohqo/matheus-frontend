@@ -10,7 +10,7 @@
               appearance="outline" 
               icon='search' 
               placeholder="Pesquisar código ou nome"></app-input>
-            <button class="header__button app-button app-button--rounded app-button--secondary" routerLink="/register">
+            <button class="header__button app-button app-button--rounded app-button--secondary" routerLink="register">
               <span class="button__text">Adicionar produto</span>
               <i class="material-icons">playlist_add</i>
             </button>
@@ -26,120 +26,10 @@
                 </tr>
             </thead>
             <tbody>
-                <tr routerLink="1/view">
-                    <td class="course-panel-row__column">123456</td>
-                    <td class="course-panel-row__column">Celularzao</td>
-                    <td class="course-panel-row__column">Teste</td>
-                </tr>
-                <tr>
-                    <td class="course-panel-row__column">123456</td>
-                    <td class="course-panel-row__column">Celularzao</td>
-                    <td class="course-panel-row__column">Teste</td>
-                </tr>
-                <tr>
-                    <td class="course-panel-row__column">123456</td>
-                    <td class="course-panel-row__column">Celularzao</td>
-                    <td class="course-panel-row__column">Teste</td>
-                </tr>
-                <tr>
-                    <td class="course-panel-row__column">123456</td>
-                    <td class="course-panel-row__column">Celularzao</td>
-                    <td class="course-panel-row__column">Teste</td>
-                </tr>
-                <tr>
-                    <td class="course-panel-row__column">123456</td>
-                    <td class="course-panel-row__column">Celularzao</td>
-                    <td class="course-panel-row__column">Teste</td>
-                </tr>
-                <tr>
-                    <td class="course-panel-row__column">123456</td>
-                    <td class="course-panel-row__column">Celularzao</td>
-                    <td class="course-panel-row__column">Teste</td>
-                </tr>
-                <tr>
-                    <td class="course-panel-row__column">123456</td>
-                    <td class="course-panel-row__column">Celularzao</td>
-                    <td class="course-panel-row__column">Teste</td>
-                </tr>
-                <tr>
-                    <td class="course-panel-row__column">123456</td>
-                    <td class="course-panel-row__column">Celularzao</td>
-                    <td class="course-panel-row__column">Teste</td>
-                </tr>
-                <tr>
-                    <td class="course-panel-row__column">123456</td>
-                    <td class="course-panel-row__column">Celularzao</td>
-                    <td class="course-panel-row__column">Teste</td>
-                </tr>
-                <tr>
-                    <td class="course-panel-row__column">123456</td>
-                    <td class="course-panel-row__column">Celularzao</td>
-                    <td class="course-panel-row__column">Teste</td>
-                </tr>
-                <tr>
-                    <td class="course-panel-row__column">123456</td>
-                    <td class="course-panel-row__column">Celularzao</td>
-                    <td class="course-panel-row__column">Teste</td>
-                </tr>
-                <tr>
-                    <td class="course-panel-row__column">123456</td>
-                    <td class="course-panel-row__column">Celularzao</td>
-                    <td class="course-panel-row__column">Teste</td>
-                </tr>
-                <tr>
-                    <td class="course-panel-row__column">123456</td>
-                    <td class="course-panel-row__column">Celularzao</td>
-                    <td class="course-panel-row__column">Teste</td>
-                </tr>
-                <tr>
-                    <td class="course-panel-row__column">123456</td>
-                    <td class="course-panel-row__column">Celularzao</td>
-                    <td class="course-panel-row__column">Teste</td>
-                </tr>
-                <tr>
-                    <td class="course-panel-row__column">123456</td>
-                    <td class="course-panel-row__column">Celularzao</td>
-                    <td class="course-panel-row__column">Teste</td>
-                </tr>
-                <tr>
-                    <td class="course-panel-row__column">123456</td>
-                    <td class="course-panel-row__column">Celularzao</td>
-                    <td class="course-panel-row__column">Teste</td>
-                </tr>
-                <tr>
-                    <td class="course-panel-row__column">123456</td>
-                    <td class="course-panel-row__column">Celularzao</td>
-                    <td class="course-panel-row__column">Teste</td>
-                </tr>
-                <tr>
-                    <td class="course-panel-row__column">123456</td>
-                    <td class="course-panel-row__column">Celularzao</td>
-                    <td class="course-panel-row__column">Teste</td>
-                </tr>
-                <tr>
-                    <td class="course-panel-row__column">123456</td>
-                    <td class="course-panel-row__column">Celularzao</td>
-                    <td class="course-panel-row__column">Teste</td>
-                </tr>
-                <tr>
-                    <td class="course-panel-row__column">123456</td>
-                    <td class="course-panel-row__column">Celularzao</td>
-                    <td class="course-panel-row__column">Teste</td>
-                </tr>
-                <tr>
-                    <td class="course-panel-row__column">123456</td>
-                    <td class="course-panel-row__column">Celularzao</td>
-                    <td class="course-panel-row__column">Teste</td>
-                </tr>
-                <tr>
-                    <td class="course-panel-row__column">123456</td>
-                    <td class="course-panel-row__column">Celularzao</td>
-                    <td class="course-panel-row__column">Teste</td>
-                </tr>
-                <tr>
-                    <td class="course-panel-row__column">123456</td>
-                    <td class="course-panel-row__column">Celularzao</td>
-                    <td class="course-panel-row__column">Teste</td>
+                <tr [routerLink]="[product.id, 'view']" *ngFor="let product of products">
+                    <td class="course-panel-row__column">{{ product.code }}</td>
+                    <td class="course-panel-row__column">{{ product.name }}</td>
+                    <td class="course-panel-row__column">{{ product.category.name }}</td>
                 </tr>
             </tbody>
         </table>

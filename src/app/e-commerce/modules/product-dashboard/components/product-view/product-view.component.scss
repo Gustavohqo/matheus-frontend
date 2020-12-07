@@ -27,12 +27,14 @@
     .product {
         &__gallery {
             display: flex;
+            flex: 1;
         }
 
         &__informations {
             display: flex;
             flex-direction: column;
             margin-left: 32px;
+            flex: 1;
         }
     }
 
@@ -123,6 +125,7 @@
         &__wrapper {
             padding: 24px 0;
             display: flex;
+            overflow-x: auto;
         }
 
         &__item {
@@ -142,7 +145,7 @@
 
             &--table {
                 border-collapse: inherit;
-                width: 100%;
+                width: 50%;
             }
         }
     }

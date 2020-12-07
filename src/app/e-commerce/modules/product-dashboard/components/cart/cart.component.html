@@ -11,255 +11,24 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
+                <tr *ngFor="let product of userCart?.products">
                     <td class="products-table__column products-table__column--body">
-                        <app-product-item class="cart-product__item"></app-product-item>
+                        <app-product-item class="cart-product__item" [product]="product"></app-product-item>
                     </td>
                     <td class="products-table__column products-table__column--body products-table__column--center">
                         <div class="product-quantity__input">
-                            <i class="material-icons product-quantity__icon">remove</i>
-                            <app-input appearance="basic" type="number"></app-input>
-                            <i class="material-icons product-quantity__icon">add</i>
+                            <i class="material-icons product-quantity__icon" (click)="decreaseQuantity(product)">remove</i>
+                            <app-input appearance="basic" type="number" [initialValue]="product?.quantity"></app-input>
+                            <i class="material-icons product-quantity__icon" (click)="addQuantity(product)">add</i>
                         </div>
-                        <span class="product-quantity__footer">Remover</span>
+                        <span class="product-quantity__footer" (click)="removeProduct(product)">Remover</span>
                     </td>
                     <td class="products-table__column products-table__column--body products-table__column--center">
-                        <span class="product-price__value">R$ 6.574,67</span>
+                        <span class="product-price__value">{{ product?.finalPrice }}</span>
                     </td>
                     <td class="products-table__column products-table__column--body products-table__column--center">
                         <span class="product-sale__description">
-                            Leve 3 por 1
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="products-table__column products-table__column--body">
-                        <app-product-item class="cart-product__item"></app-product-item>
-                    </td>
-                    <td class="products-table__column products-table__column--body products-table__column--center">
-                        <div class="product-quantity__input">
-                            <i class="material-icons product-quantity__icon">remove</i>
-                            <app-input appearance="basic" type="number"></app-input>
-                            <i class="material-icons product-quantity__icon">add</i>
-                        </div>
-                        <span class="product-quantity__footer">Remover</span>
-                    </td>
-                    <td class="products-table__column products-table__column--body products-table__column--center">
-                        <span class="product-price__value">R$ 6.574,67</span>
-                    </td>
-                    <td class="products-table__column products-table__column--body products-table__column--center">
-                        <span class="product-sale__description">
-                            Leve 3 por 1
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="products-table__column products-table__column--body">
-                        <app-product-item class="cart-product__item"></app-product-item>
-                    </td>
-                    <td class="products-table__column products-table__column--body products-table__column--center">
-                        <div class="product-quantity__input">
-                            <i class="material-icons product-quantity__icon">remove</i>
-                            <app-input appearance="basic" type="number"></app-input>
-                            <i class="material-icons product-quantity__icon">add</i>
-                        </div>
-                        <span class="product-quantity__footer">Remover</span>
-                    </td>
-                    <td class="products-table__column products-table__column--body products-table__column--center">
-                        <span class="product-price__value">R$ 6.574,67</span>
-                    </td>
-                    <td class="products-table__column products-table__column--body products-table__column--center">
-                        <span class="product-sale__description">
-                            Leve 3 por 1
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="products-table__column products-table__column--body">
-                        <app-product-item class="cart-product__item"></app-product-item>
-                    </td>
-                    <td class="products-table__column products-table__column--body products-table__column--center">
-                        <div class="product-quantity__input">
-                            <i class="material-icons product-quantity__icon">remove</i>
-                            <app-input appearance="basic" type="number"></app-input>
-                            <i class="material-icons product-quantity__icon">add</i>
-                        </div>
-                        <span class="product-quantity__footer">Remover</span>
-                    </td>
-                    <td class="products-table__column products-table__column--body products-table__column--center">
-                        <span class="product-price__value">R$ 6.574,67</span>
-                    </td>
-                    <td class="products-table__column products-table__column--body products-table__column--center">
-                        <span class="product-sale__description">
-                            Leve 3 por 1
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="products-table__column products-table__column--body">
-                        <app-product-item class="cart-product__item"></app-product-item>
-                    </td>
-                    <td class="products-table__column products-table__column--body products-table__column--center">
-                        <div class="product-quantity__input">
-                            <i class="material-icons product-quantity__icon">remove</i>
-                            <app-input appearance="basic" type="number"></app-input>
-                            <i class="material-icons product-quantity__icon">add</i>
-                        </div>
-                        <span class="product-quantity__footer">Remover</span>
-                    </td>
-                    <td class="products-table__column products-table__column--body products-table__column--center">
-                        <span class="product-price__value">R$ 6.574,67</span>
-                    </td>
-                    <td class="products-table__column products-table__column--body products-table__column--center">
-                        <span class="product-sale__description">
-                            Leve 3 por 1
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="products-table__column products-table__column--body">
-                        <app-product-item class="cart-product__item"></app-product-item>
-                    </td>
-                    <td class="products-table__column products-table__column--body products-table__column--center">
-                        <div class="product-quantity__input">
-                            <i class="material-icons product-quantity__icon">remove</i>
-                            <app-input appearance="basic" type="number"></app-input>
-                            <i class="material-icons product-quantity__icon">add</i>
-                        </div>
-                        <span class="product-quantity__footer">Remover</span>
-                    </td>
-                    <td class="products-table__column products-table__column--body products-table__column--center">
-                        <span class="product-price__value">R$ 6.574,67</span>
-                    </td>
-                    <td class="products-table__column products-table__column--body products-table__column--center">
-                        <span class="product-sale__description">
-                            Leve 3 por 1
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="products-table__column products-table__column--body">
-                        <app-product-item class="cart-product__item"></app-product-item>
-                    </td>
-                    <td class="products-table__column products-table__column--body products-table__column--center">
-                        <div class="product-quantity__input">
-                            <i class="material-icons product-quantity__icon">remove</i>
-                            <app-input appearance="basic" type="number"></app-input>
-                            <i class="material-icons product-quantity__icon">add</i>
-                        </div>
-                        <span class="product-quantity__footer">Remover</span>
-                    </td>
-                    <td class="products-table__column products-table__column--body products-table__column--center">
-                        <span class="product-price__value">R$ 6.574,67</span>
-                    </td>
-                    <td class="products-table__column products-table__column--body products-table__column--center">
-                        <span class="product-sale__description">
-                            Leve 3 por 1
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="products-table__column products-table__column--body">
-                        <app-product-item class="cart-product__item"></app-product-item>
-                    </td>
-                    <td class="products-table__column products-table__column--body products-table__column--center">
-                        <div class="product-quantity__input">
-                            <i class="material-icons product-quantity__icon">remove</i>
-                            <app-input appearance="basic" type="number"></app-input>
-                            <i class="material-icons product-quantity__icon">add</i>
-                        </div>
-                        <span class="product-quantity__footer">Remover</span>
-                    </td>
-                    <td class="products-table__column products-table__column--body products-table__column--center">
-                        <span class="product-price__value">R$ 6.574,67</span>
-                    </td>
-                    <td class="products-table__column products-table__column--body products-table__column--center">
-                        <span class="product-sale__description">
-                            Leve 3 por 1
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="products-table__column products-table__column--body">
-                        <app-product-item class="cart-product__item"></app-product-item>
-                    </td>
-                    <td class="products-table__column products-table__column--body products-table__column--center">
-                        <div class="product-quantity__input">
-                            <i class="material-icons product-quantity__icon">remove</i>
-                            <app-input appearance="basic" type="number"></app-input>
-                            <i class="material-icons product-quantity__icon">add</i>
-                        </div>
-                        <span class="product-quantity__footer">Remover</span>
-                    </td>
-                    <td class="products-table__column products-table__column--body products-table__column--center">
-                        <span class="product-price__value">R$ 6.574,67</span>
-                    </td>
-                    <td class="products-table__column products-table__column--body products-table__column--center">
-                        <span class="product-sale__description">
-                            Leve 3 por 1
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="products-table__column products-table__column--body">
-                        <app-product-item class="cart-product__item"></app-product-item>
-                    </td>
-                    <td class="products-table__column products-table__column--body products-table__column--center">
-                        <div class="product-quantity__input">
-                            <i class="material-icons product-quantity__icon">remove</i>
-                            <app-input appearance="basic" type="number"></app-input>
-                            <i class="material-icons product-quantity__icon">add</i>
-                        </div>
-                        <span class="product-quantity__footer">Remover</span>
-                    </td>
-                    <td class="products-table__column products-table__column--body products-table__column--center">
-                        <span class="product-price__value">R$ 6.574,67</span>
-                    </td>
-                    <td class="products-table__column products-table__column--body products-table__column--center">
-                        <span class="product-sale__description">
-                            Leve 3 por 1
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="products-table__column products-table__column--body">
-                        <app-product-item class="cart-product__item"></app-product-item>
-                    </td>
-                    <td class="products-table__column products-table__column--body products-table__column--center">
-                        <div class="product-quantity__input">
-                            <i class="material-icons product-quantity__icon">remove</i>
-                            <app-input appearance="basic" type="number"></app-input>
-                            <i class="material-icons product-quantity__icon">add</i>
-                        </div>
-                        <span class="product-quantity__footer">Remover</span>
-                    </td>
-                    <td class="products-table__column products-table__column--body products-table__column--center">
-                        <span class="product-price__value">R$ 6.574,67</span>
-                    </td>
-                    <td class="products-table__column products-table__column--body products-table__column--center">
-                        <span class="product-sale__description">
-                            Leve 3 por 1
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="products-table__column products-table__column--body">
-                        <app-product-item class="cart-product__item"></app-product-item>
-                    </td>
-                    <td class="products-table__column products-table__column--body products-table__column--center">
-                        <div class="product-quantity__input">
-                            <i class="material-icons product-quantity__icon">remove</i>
-                            <app-input appearance="basic" type="number"></app-input>
-                            <i class="material-icons product-quantity__icon">add</i>
-                        </div>
-                        <span class="product-quantity__footer">Remover</span>
-                    </td>
-                    <td class="products-table__column products-table__column--body products-table__column--center">
-                        <span class="product-price__value">R$ 6.574,67</span>
-                    </td>
-                    <td class="products-table__column products-table__column--body products-table__column--center">
-                        <span class="product-sale__description">
-                            Leve 3 por 1
+                            {{ product?.appliedSale }}
                         </span>
                     </td>
                 </tr>
@@ -271,13 +40,13 @@
         <div class="payment__price">
             <span class="cart-price__title">total</span>
             <div class="cart-price__details">
-                <span class="cart-price__value">R$ 6.574,67</span>
+                <span class="cart-price__value">R$&nbsp;{{ userCart?.price }}</span>
                 <span class="cart-price__way">em até 12x sem juros</span>
             </div>
         </div>
         <div class="payment__actions">
-            <button class="app-button app-button--primary payment__action-button">Finalizar Compra</button>
-            <button class="app-button app-button--secondary">Escolher mais produtos</button>
+            <button class="app-button app-button--primary payment__action-button" (click)="checkout()">Finalizar Compra</button>
+            <button class="app-button app-button--secondary" routerLink="/e-commerce/product-dashboard">Escolher mais produtos</button>
         </div>
     </div>
 </div>

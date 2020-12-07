@@ -1,4 +1,8 @@
 import { NgModule } from '@angular/core';
+import { CartService } from '../shared/services/api/cart.service';
+import { CategoryService } from '../shared/services/api/category.service';
+import { ProductService } from '../shared/services/api/product.service';
+import { SaleService } from '../shared/services/api/sale.service';
 import { SharedModule } from '../shared/shared.module';
 import { ECommerceDashboardComponent } from './components/e-commerce-dashboard/e-commerce-dashboard.component';
 import { ECommerceRoutingModule } from './e-commerce-routing.module';
@@ -8,6 +12,6 @@ import { ProductManagementModule } from './modules/product-management/product-ma
 @NgModule({
   declarations: [ECommerceDashboardComponent],
   imports: [ECommerceRoutingModule, SharedModule, ProductManagementModule, ProductDashboardModule],
-  providers: [],
+  providers: [ProductService, CartService, SaleService, CategoryService],
 })
 export class ECommerceModule {}

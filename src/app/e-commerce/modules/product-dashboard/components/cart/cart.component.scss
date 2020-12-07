@@ -80,6 +80,10 @@
             margin-top: 8px;
             font-size: var(--typography-caption);
             font-weight: bold;
+
+            &:hover {
+                text-decoration: underline;
+            }
         }
     }
 

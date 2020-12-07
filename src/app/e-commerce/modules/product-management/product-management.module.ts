@@ -1,4 +1,6 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ProductDeletionModalComponent } from './components/product-deletion-modal/product-deletion-modal.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
@@ -8,7 +10,7 @@ import { ProductManagementRoutingModule } from './product-management-routing.mod
 
 @NgModule({
   declarations: [ProductManagementComponent, ProductDetailsComponent, ProductRegistrationComponent, ProductDeletionModalComponent],
-  imports: [ProductManagementRoutingModule, SharedModule],
+  imports: [CommonModule, ProductManagementRoutingModule, SharedModule, FormsModule, ReactiveFormsModule],
   providers: [],
 })
 export class ProductManagementModule {}

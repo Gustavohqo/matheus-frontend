@@ -61,7 +61,8 @@
         }
 
         &__img-container {
-            margin-top: 24px;
+            overflow: auto;
+            padding: 24px 0;
             display: flex;
         }
 

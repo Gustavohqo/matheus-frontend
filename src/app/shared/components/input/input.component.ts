@@ -24,6 +24,8 @@ export class InputComponent implements OnInit {
 
   @Output() changeValue = new EventEmitter<any>();
 
+  @Input() initialValue: any = null;
+
   inputInsideForm = false;
 
   constructor(private inputErrorService: InputErrorService) {}

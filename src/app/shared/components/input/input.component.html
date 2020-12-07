@@ -18,7 +18,8 @@
         <input [type]="type" 
             class="input-container__input" 
             [placeholder]="placeholder || ''"
-            (keyup)="changeValue.emit($event.target)"/>
+            (keyup)="changeValue.emit($event.target)"
+            [value]="initialValue"/>
         <i *ngIf="icon" class="material-icons input-container__icon">{{ icon }}</i>
     </div>
 </div>
