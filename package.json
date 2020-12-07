@@ -8,16 +8,6 @@
     "test": "ng test",
     "lint": "ng lint"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged --relative"
-    }
-  },
-  "lint-staged": {
-    "*.{js,ts}": [
-      "eslint --fix"
-    ]
-  },
   "private": true,
   "dependencies": {
     "@angular/animations": "~11.0.1",
