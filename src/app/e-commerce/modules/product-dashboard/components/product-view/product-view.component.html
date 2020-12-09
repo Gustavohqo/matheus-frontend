@@ -1,36 +1,22 @@
 <div class="product-view">
     <div class="product-view__product">
         <div class="product__gallery">
-            <div class="gallery__images">
-                <img *ngFor="let image of product?.images" 
-                    [src]="image.src"
-                    alt="Product Image"
-                    class="gallery__preview-image">
-            </div>
-            <div class="gallery__selected-image">
-                <img src="https://images-americanas.b2w.io/produtos/01/00/img/1446551/8/1446551843_1GG.jpg"
-                    alt="Telefone">
-            </div>
+            <img [src]="product?.imageSource"
+                    [alt]="product?.name">
         </div>
         <div class="product__informations">
             <span class="informations__title">
                 {{ product?.name }}
             </span>
             <div class="informations__payment">
-                <!-- <span class="payment__older-price">R$ 2.999,00</span> -->
                 <span class="payment__price">{{ product?.price }}</span>
                 <span class="payment__way">em até 12x sem juros</span>
             </div>
-            <!-- <div class="informations__size">
-                <span class="size__title">TAMANHO</span>
-                <app-select appearance='basic' [options]="sizes"></app-select>
-            </div> -->
             <div class="informations__actions">
                 <button class="app-button app-button--primary action-button" (click)="addProductToCart()">
                     <span class="action-button__text">Adicionar ao carrinho</span>
                     <i class="material-icons-outlined primary-header__icon">shopping_cart</i>
                 </button>
-                <button class="app-button">Adicionar aos Favoritos</button>
             </div>
         </div>
     </div>
@@ -40,25 +26,6 @@
             <app-product-item class="suggestions__item" 
                 [routerLink]="[suggestion.id, 'view']" 
                 *ngFor="let suggestion of suggestionsOfProducts" [product]="suggestion"></app-product-item>
-        </div>
-    </div>
-    <div class="product-view__details">
-        <div class="details__description">
-            <span class="details__title">DETALHES DO PRODUTO</span>
-            <p class="details__content">
-                {{ product?.description }}
-            </p>
-        </div>
-        <div class="details__informations">
-            <span class="details__title">INFORMAÇÕES</span>
-            <table class="details__content details__content--table">
-                <tbody>
-                    <tr *ngFor="let information of product?.informations">
-                        <td>{{ information.label }}</td>
-                        <td>{{ information.value }}</td>
-                    </tr>
-                </tbody>
-            </table>
         </div>
     </div>
 </div>

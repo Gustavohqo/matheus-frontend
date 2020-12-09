@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ProductDto } from 'src/app/models/e-commerce/product.model';
 import { ProductService } from 'src/app/shared/services/api/product.service';
+import { LoadingService } from 'src/app/shared/services/loading.service';
 
 @Component({
   selector: 'app-product-details',
@@ -16,7 +17,12 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
 
   modalIsVisible = false;
 
-  constructor(private productService: ProductService, private activatedRoute: ActivatedRoute, private router: Router) {}
+  constructor(
+    private productService: ProductService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
+    public loadingService: LoadingService,
+  ) {}
 
   ngOnInit(): void {
     this.getIdFromRoute();
@@ -31,11 +37,15 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
   }
 
   getProduct(id: number): void {
-    this.subscriptions.push(
-      this.productService.getProduct(id).subscribe((product: ProductDto) => {
+    this.loadingService.changeLoading.next(true);
+
+    this.productService.getProduct(id).subscribe({
+      next: (product: ProductDto) => {
+        this.loadingService.changeLoading.next(false);
         this.product = product;
-      }),
-    );
+      },
+      error: () => this.loadingService.changeLoading.next(false),
+    });
   }
 
   goBack(): void {
@@ -46,7 +56,17 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
     this.modalIsVisible = !this.modalIsVisible;
   }
 
-  deleteProduct(): void {}
+  deleteProduct(): void {
+    this.loadingService.changeLoading.next(true);
+
+    this.productService.deleteProduct(this.product?.id).subscribe({
+      next: () => {
+        this.loadingService.changeLoading.next(false);
+        this.goBack();
+      },
+      error: () => this.loadingService.changeLoading.next(false),
+    });
+  }
 
   edit(): void {
     this.router.navigate(['e-commerce/product-management/', this.product?.id, 'edit']);

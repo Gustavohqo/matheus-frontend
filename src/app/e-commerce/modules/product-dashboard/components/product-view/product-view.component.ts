@@ -3,8 +3,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ProductDto } from 'src/app/models/e-commerce/product.model';
 import { SimpleProductDto } from 'src/app/models/e-commerce/simple-product.model';
-import { SelectInput } from 'src/app/models/shared/select-input.model';
+import { ProductCartService } from 'src/app/shared/services/api/product-cart.service copy';
 import { ProductService } from 'src/app/shared/services/api/product.service';
+import { LoadingService } from 'src/app/shared/services/loading.service';
+
+const DEFAULT_QUANTITY = 1;
 
 @Component({
   selector: 'app-product-view',
@@ -16,18 +19,15 @@ export class ProductViewComponent implements OnInit, OnDestroy {
 
   suggestionsOfProducts: Array<SimpleProductDto> = [];
 
-  sizes = [
-    new SelectInput('P', 1),
-    new SelectInput('PP', 2),
-    new SelectInput('M', 3),
-    new SelectInput('G', 4),
-    new SelectInput('GG', 5),
-    new SelectInput('GGG', 6),
-  ];
-
   product?: ProductDto;
 
-  constructor(private productService: ProductService, private activatedRoute: ActivatedRoute, private router: Router) {}
+  constructor(
+    private productService: ProductService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
+    private productCartService: ProductCartService,
+    public loadingService: LoadingService,
+  ) {}
 
   ngOnInit(): void {
     this.getIdFromRoute();
@@ -43,23 +43,39 @@ export class ProductViewComponent implements OnInit, OnDestroy {
   }
 
   getProduct(id: number): void {
-    this.subscriptions.push(
-      this.productService.getProduct(id).subscribe((product: ProductDto) => {
+    this.loadingService.changeLoading.next(true);
+
+    this.productService.getProduct(id).subscribe({
+      next: (product: ProductDto) => {
+        this.loadingService.changeLoading.next(false);
         this.product = product;
-      }),
-    );
+      },
+      error: () => this.loadingService.changeLoading.next(false),
+    });
   }
 
   getSuggestions(): void {
-    this.subscriptions.push(
-      this.productService.getProducts().subscribe((products: Array<SimpleProductDto>) => {
+    this.loadingService.changeLoading.next(true);
+
+    this.productService.getProducts().subscribe({
+      next: (products: Array<SimpleProductDto>) => {
+        this.loadingService.changeLoading.next(false);
         this.suggestionsOfProducts = products;
-      }),
-    );
+      },
+      error: () => this.loadingService.changeLoading.next(false),
+    });
   }
 
   addProductToCart(): void {
-    this.router.navigate(['/e-commerce/cart']);
+    this.loadingService.changeLoading.next(true);
+
+    this.productCartService.createProductCart(this.product?.id, DEFAULT_QUANTITY).subscribe({
+      next: () => {
+        this.loadingService.changeLoading.next(false);
+        this.router.navigate(['/e-commerce/cart']);
+      },
+      error: () => this.loadingService.changeLoading.next(false),
+    });
   }
 
   ngOnDestroy(): void {

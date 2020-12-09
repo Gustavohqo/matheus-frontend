@@ -7,11 +7,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { ECommerceModule } from './e-commerce/e-commerce.module';
+import { LoadingService } from './shared/services/loading.service';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, CommonModule, CommonModule, AppRoutingModule, CoreModule, ECommerceModule, HttpClientModule],
-  providers: [],
+  imports: [BrowserModule, CommonModule, CommonModule, AppRoutingModule, CoreModule, ECommerceModule, HttpClientModule, SharedModule],
+  providers: [LoadingService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

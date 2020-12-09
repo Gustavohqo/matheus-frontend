@@ -1,22 +1,9 @@
 import { CategoryDto } from './category.model';
-import { ProductImageDto } from './product-image.dto';
-import { ProductInformationDto } from './product-information.model';
-import { ProductSaleDto } from './product-sale.model';
+import { SaleDto } from './sale.model';
 import { SimpleProductDto } from './simple-product.model';
 
 export class ProductDto extends SimpleProductDto {
-  constructor(
-    id: number,
-    code: string,
-    name: string,
-    price: number,
-    primaryImageSrc: string,
-    category: CategoryDto,
-    public description: string,
-    public informations: Array<ProductInformationDto>,
-    public sales: Array<ProductSaleDto>,
-    public images: Array<ProductImageDto>,
-  ) {
-    super(id, code, name, price, primaryImageSrc, category);
+  constructor(id: number, name: string, price: number, imageSource: string, category: CategoryDto, public sale: SaleDto) {
+    super(id, name, price, imageSource, category);
   }
 }

@@ -1,7 +1,5 @@
 <div class="product-details">
-    <div class="product-details__title">
-        {{ product?.code }}&nbsp;-&nbsp;{{ product?.name }}
-    </div>
+    <div class="product-details__title">{{ product?.name }}</div>
     <div class="product-details__informations-wrapper">
         <div class="product-details__informations">
             <div class="product-informations__item">
@@ -13,22 +11,10 @@
                 <span>{{ product?.category?.name }}</span>
             </div>
             <div class="product-informations__item">
-                <span class="information-item__title">Informações</span>
-                <table class="sub-item__table">
-                    <tbody>
-                        <tr *ngFor="let information of product?.informations">
-                            <td class="sub-item__label">{{ information.label }}</td>
-                            <td>{{ information.value }}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="product-informations__item">
-                <span class="information-item__title">Imagens</span>
+                <span class="information-item__title">Imagem</span>
                 <div class="sub-item__img-container">
-                    <img *ngFor="let image of product?.images" 
-                        [src]="image.src"                        
-                        alt="Product Image"
+                    <img [src]="product?.imageSource"                        
+                        [alt]="product?.imageSource"
                         class="sub-item__img"
                         height="152px"
                         width="152px">
@@ -36,9 +22,7 @@
             </div>
             <div class="product-informations__item">
                 <span class="information-item__title">Promoções</span>
-                <ul>
-                    <li *ngFor="let sale of product?.sales" >{{ sale.name }}</li>
-                </ul>
+                <span>{{ product?.sale?.name }}</span>
             </div>
         </div>
         <div class="product-details__actions">

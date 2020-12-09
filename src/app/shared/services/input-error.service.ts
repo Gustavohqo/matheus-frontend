@@ -8,9 +8,6 @@ export class InputErrorService {
     if (this.fieldHasMinValue(formGroup, formControlName)) {
       return `Insira um valor maior/igual a ${formGroup.controls[formControlName].errors?.min.min}`;
     }
-    if (this.isFieldInteger(formGroup, formControlName)) {
-      return 'Insira um valor inteiro';
-    }
     return null;
   }
 
@@ -20,9 +17,5 @@ export class InputErrorService {
 
   private fieldHasMinValue(formGroup: FormGroup, formControlName: string): boolean {
     return formGroup.controls[formControlName].touched && formGroup.controls[formControlName].errors?.min;
-  }
-
-  private isFieldInteger(formGroup: FormGroup, formControlName: string): boolean {
-    return formGroup.controls[formControlName].touched && formGroup.controls[formControlName].errors?.integer;
   }
 }

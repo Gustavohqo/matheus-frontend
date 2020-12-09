@@ -9,6 +9,7 @@
             align-items: center;
             background-color: var(--primary-500);
             padding: 24px;
+            justify-content: space-between;
         }
 
         &__secondary {
@@ -20,8 +21,6 @@
 
     .primary-header {
         &__item {
-            flex: 1;
-
             &--input {
                 display: flex;
                 padding: 0 24px;

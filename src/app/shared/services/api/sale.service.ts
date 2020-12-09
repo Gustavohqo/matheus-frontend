@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, of } from 'rxjs';
-import { ProductSaleDto } from 'src/app/models/e-commerce/product-sale.model';
+import { Observable } from 'rxjs';
+import { SaleDto } from 'src/app/models/e-commerce/sale.model';
 import { BaseService } from './base.service';
 
 @Injectable()
@@ -12,8 +12,7 @@ export class SaleService extends BaseService {
     super(http, router);
   }
 
-  getSales(): Observable<Array<ProductSaleDto>> {
-    // return this.get<CartDto>(`carts/${1}`);
-    return of([new ProductSaleDto(1, 'Leve 3 por 10'), new ProductSaleDto(1, 'Leve 3 por 40')]);
+  getSales(): Observable<Array<SaleDto>> {
+    return this.get<Array<SaleDto>>(`sales/`);
   }
 }

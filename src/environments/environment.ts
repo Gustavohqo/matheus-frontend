@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://uoledtech.azurewebsites.net/api',
+  apiUrl: 'https://localhost:44388/api',
 };
 
 /*

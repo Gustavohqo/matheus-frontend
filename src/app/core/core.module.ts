@@ -1,13 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { CategoryService } from '../shared/services/api/category.service';
 import { HeaderComponent } from './header/header.component';
-import { SearchBarComponent } from './search-bar/search-bar.component';
 
 @NgModule({
-  declarations: [HeaderComponent, SearchBarComponent],
+  declarations: [HeaderComponent],
   imports: [CommonModule, RouterModule],
-  providers: [],
-  exports: [HeaderComponent, SearchBarComponent],
+  providers: [CategoryService],
+  exports: [HeaderComponent],
 })
 export class CoreModule {}

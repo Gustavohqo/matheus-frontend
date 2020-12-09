@@ -1,5 +1,5 @@
-import { CartProductDto } from './cart-product.model';
+import { ProductCartDto } from './product-cart.model';
 
 export class CartDto {
-  constructor(public id: number, public products: Array<CartProductDto>, public price: number) {}
+  constructor(public id: number, public productsCart: Array<ProductCartDto>, public price: number) {}
 }

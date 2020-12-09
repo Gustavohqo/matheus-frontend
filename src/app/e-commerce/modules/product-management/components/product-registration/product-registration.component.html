@@ -2,7 +2,7 @@
     <div class="product-form-container__title">
         Cadastrar produto
     </div>
-    <form class="product-form-container__form" [formGroup]="productForm">
+    <form class="product-form-container__form" [formGroup]="productForm" (ngSubmit)="onSubmit()">
         <div class="product-form__inputs">
             <app-select class="product-form__select" 
                 appearance="standard" 
@@ -10,13 +10,14 @@
                 [options]="categories"
                 [appFormGroup]="productForm"
                 appFormControlName="category"
-                [initialSelectedValue]="productForm.controls.category.value"></app-select>
-            <app-input class="product-form__input" 
-                label="Código do produto" 
+                [initialSelectedValue]="productForm.controls.category.value || null"></app-select>
+            <app-select class="product-form__select" 
                 appearance="standard" 
-                type="text"
+                placeholder="Promoção"
+                [options]="sales"
                 [appFormGroup]="productForm"
-                appFormControlName="code"></app-input>
+                appFormControlName="sale"
+                [initialSelectedValue]="productForm.controls.sale.value || null"></app-select>
             <app-input class="product-form__input" 
                 label="Nome do produto" 
                 appearance="standard" 
@@ -29,65 +30,15 @@
                 type="number"
                 [appFormGroup]="productForm"
                 appFormControlName="price"></app-input>
-            <div class="product-form__sub-form">
-                <span class="sub-form__title">Informações</span>
-                <form class="sub-form__input-container" 
-                    [formGroup]="informationGroup" 
-                    *ngFor="let informationGroup of $any(productForm.controls.informations).controls; let index = index">
-                    <app-input class="product-form__input sub-form__input" 
-                        label="Label da informação" 
-                        appearance="standard" 
-                        type="text"
-                        [appFormGroup]="informationGroup"
-                        appFormControlName="label"></app-input>
-                    <app-input class="product-form__input sub-form__input" 
-                        label="Valor da informação" 
-                        appearance="standard" 
-                        type="text"
-                        [appFormGroup]="informationGroup"
-                        appFormControlName="value"></app-input>
-                    <i class="material-icons-outlined sub-form__icon" 
-                        (click)="removeFormGroup($any(productForm.controls.informations), index)">delete</i>
-            </form>
-                <button class="app-button sub-form__button app-button--primary" 
-                    (click)="addInformationGroup()">Adicionar Informação</button>
-            </div>
-            <div class="product-form__sub-form">
-                <span class="sub-form__title">Imagens</span>
-                <form class="sub-form__input-container" 
-                    [formGroup]="imageGroup" 
-                    *ngFor="let imageGroup of $any(productForm.controls.images).controls; let index = index">
-                    <app-input class="product-form__input sub-form__input" 
-                        label="Link da imagem" 
-                        appearance="standard" 
-                        type="text"
-                        [appFormGroup]="imageGroup"
-                        appFormControlName="src"></app-input>
-                    <i class="material-icons-outlined sub-form__icon"
-                        (click)="removeFormGroup($any(productForm.controls.images), index)">delete</i>
-                </form>
-                <button class="app-button sub-form__button app-button--primary" (click)="addImageGroup()">Adicionar Imagem</button>
-            </div>
-            <div class="product-form__sub-form">
-                <span class="sub-form__title">Promoções</span>
-                <form class="sub-form__input-container" 
-                    [formGroup]="saleGroup" 
-                    *ngFor="let saleGroup of $any(productForm.controls.sales).controls; let index = index">
-                    <app-select class="product-form__select sub-form__select" 
-                        appearance="standard" 
-                        placeholder="Promoção"
-                        [options]="sales"
-                        [appFormGroup]="saleGroup"
-                        appFormControlName="sale"
-                        [initialSelectedValue]="$any(saleGroup).controls.sale.value"></app-select>
-                    <i class="material-icons-outlined sub-form__icon"
-                        (click)="removeFormGroup($any(productForm.controls.sales), index)">delete</i>
-                </form>
-                <button class="app-button sub-form__button app-button--primary" (click)="addSaleGroup()">Adicionar Promoção</button>
-            </div>
+            <app-input class="product-form__input" 
+                label="Url da Imagem" 
+                appearance="standard" 
+                type="text"
+                [appFormGroup]="productForm"
+                appFormControlName="imageSource"></app-input>
         </div>
         <div class="product-form__actions">
-            <button class="form-actions__button app-button app-button--basic" (click)="goBack()">Cancelar</button>
+            <button class="form-actions__button app-button app-button--basic" type="button" (click)="goBack()">Cancelar</button>
             <button class="form-actions__button app-button app-button--primary" 
                 type="submit"
                 [disabled]="!productForm.valid"

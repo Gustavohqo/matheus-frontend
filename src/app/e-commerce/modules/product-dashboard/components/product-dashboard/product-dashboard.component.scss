@@ -6,12 +6,11 @@
         display: flex;
         flex: 1;
 
-        &__filters {
-            padding: 24px;
-        }
-
         &__products-wrapper {
             flex: 1;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
             overflow: auto;
             padding: 32px;
         }

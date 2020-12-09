@@ -11,24 +11,24 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let product of userCart?.products">
+                <tr *ngFor="let productCart of userCart?.productsCart">
                     <td class="products-table__column products-table__column--body">
-                        <app-product-item class="cart-product__item" [product]="product"></app-product-item>
+                        <app-product-item class="cart-product__item" [product]="productCart.product"></app-product-item>
                     </td>
                     <td class="products-table__column products-table__column--body products-table__column--center">
                         <div class="product-quantity__input">
-                            <i class="material-icons product-quantity__icon" (click)="decreaseQuantity(product)">remove</i>
-                            <app-input appearance="basic" type="number" [initialValue]="product?.quantity"></app-input>
-                            <i class="material-icons product-quantity__icon" (click)="addQuantity(product)">add</i>
+                            <i class="material-icons product-quantity__icon" (click)="decreaseQuantity(productCart)">remove</i>
+                            <span>{{ productCart?.quantity }}</span>
+                            <i class="material-icons product-quantity__icon" (click)="addQuantity(productCart)">add</i>
                         </div>
-                        <span class="product-quantity__footer" (click)="removeProduct(product)">Remover</span>
+                        <span class="product-quantity__footer" (click)="removeProduct(productCart)">Remover</span>
                     </td>
                     <td class="products-table__column products-table__column--body products-table__column--center">
-                        <span class="product-price__value">{{ product?.finalPrice }}</span>
+                        <span class="product-price__value">{{ productCart?.finalPrice }}</span>
                     </td>
                     <td class="products-table__column products-table__column--body products-table__column--center">
-                        <span class="product-sale__description">
-                            {{ product?.appliedSale }}
+                        <span class="product-sale__description" *ngIf="productCart?.appliedSale">
+                            {{ productCart?.product?.sale?.name }}
                         </span>
                     </td>
                 </tr>

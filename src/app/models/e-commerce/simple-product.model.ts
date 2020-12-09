@@ -1,12 +1,5 @@
 import { CategoryDto } from './category.model';
 
 export class SimpleProductDto {
-  constructor(
-    public id: number,
-    public code: string,
-    public name: string,
-    public price: number,
-    public primaryImageSrc: string,
-    public category: CategoryDto,
-  ) {}
+  constructor(public id: number, public name: string, public price: number, public imageSource: string, public category: CategoryDto) {}
 }
