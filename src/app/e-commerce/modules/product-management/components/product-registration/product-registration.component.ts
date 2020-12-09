@@ -54,7 +54,7 @@ export class ProductRegistrationComponent implements OnInit, OnDestroy {
       price: new FormControl(this.product?.price, [Validators.required, Validators.min(0)]),
       category: new FormControl(this.product?.category, [Validators.required]),
       imageSource: new FormControl(this.product?.imageSource, [Validators.required]),
-      sale: new FormControl(this.product?.sale, [Validators.required]),
+      sale: new FormControl(this.product?.sale, []),
     });
   }
 
@@ -147,7 +147,7 @@ export class ProductRegistrationComponent implements OnInit, OnDestroy {
   buildProductByForm(): ProductCreationDto {
     const { name, price, category, imageSource, sale } = this.productForm.controls;
 
-    return new ProductCreationDto(name.value, +price.value, category.value.id, imageSource.value, sale.value.id);
+    return new ProductCreationDto(name.value, +price.value, category.value.id, imageSource.value, sale?.value?.id);
   }
 
   ngOnDestroy(): void {
