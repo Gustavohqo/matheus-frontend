@@ -1,4 +1,4 @@
-# UolEdtech Frontend
+# Siteware Frontend
 
 Aplicação disponivel em: https://ecstatic-austin-ed38f4.netlify.app/
 
