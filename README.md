@@ -1,6 +1,6 @@
 # UolEdtech Frontend
 
-Aplicação disponivel em: https://eager-villani-475d0b.netlify.app/
+Aplicação disponivel em: https://ecstatic-austin-ed38f4.netlify.app/
 
 O frontend foi desenvolvido utilizando o framework SPA Angular, no qual foi dividido em 3 modulos
 
