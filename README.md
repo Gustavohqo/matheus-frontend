@@ -1,27 +1,48 @@
-# SitewareFrontend
+# UolEdtech Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.2.
+Aplicação disponivel em: https://eager-villani-475d0b.netlify.app/
 
-## Development server
+O frontend foi desenvolvido utilizando o framework SPA Angular, no qual foi dividido em 3 modulos
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+  - App Module 
+    - Modulo principal e inicial da aplicação 
+  - Shared Module
+    - Modulo que possui componentes/serviços compartilhados, como inputs,, selects, loading, etc.
+  - E-commerce Module
+    - Modulo que possui os componentes e serviços relacionados ao E-commerce
+  - Product Dashboard Module
+    - Modulo que possui os componentes e serviços relacionados ao E-commerce na parte de compras
+  - Product Management Module
+    - Modulo que possui os componentes e serviços relacionados ao E-commerce na parte de gerenciamento de produtos
 
-## Code scaffolding
+### CSS
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Foi utilizado o padrãop BEM para desenvolvimento dos componentes e foi criado um estilo global da aplicação também, inspirado no SMACSS mas não foi implementado a arquitetura SMACSS em si.
 
-## Build
+Foram criados estilos globais para definir:
+  - Temas
+    - Define um paleta de cores padrão pra aplicação
+    - Define um tipografia de cores padrão pra aplicação
+  - Base
+    - Faz o reset de alguns estilos default
+    - Armazena os animações
+  - Components
+    - Estilos globais para serem usado em componentes da aplicação
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+### Bibliotecas utilizadas
 
-## Running unit tests
+    - angular
+    - rxjs
+    - lodash
+    - husky
+    - eslint
+    - prettier
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Run Application
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```sh
+$ cd uol-edtech-frontend
+$ npm install
+$ npm start
+```
