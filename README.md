@@ -42,7 +42,7 @@ Foram criados estilos globais para definir:
 
 
 ```sh
-$ cd uol-edtech-frontend
+$ cd siteware-frontend
 $ npm install
 $ npm start
 ```
